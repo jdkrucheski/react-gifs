@@ -1,26 +1,40 @@
-yarn add --dev jest babel-jest @babel/preset-env @babel/preset-react
+## Dev dependencies
 
-yarn add --dev @testing-library/react @types/jest jest-environment-jsdom
-
-yarn add --dev whatwg-fetch
-
-yarn add --dev jest
-yarn add --dev @babel/preset-typescript
-yarn add --dev ts-jest
-yarn add --dev @types/jest
-
-// jest.config.js
+- @babel/core
+- @babel/preset-env
+- @babel/preset-react
+- @babel/preset-typescript
+- @testing-library/jest-dom
+- @testing-library/react
+- @types/jest
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- autoprefixer
+- babel-jest
+- jest
+- jest-environment-jsdom
+- postcss
+- tailwindcss
+- ts-jest
+- ts-node
+- typescript
+- vite
 
 ```
-import "whatwg-fetch";
-module.exports = {
+yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript @testing-library/jest-dom @testing-library/react @types/jest @types/react @types/react-dom @vitejs/plugin-react autoprefixer babel-jest jest jest-environment-jsdom postcss tailwindcss ts-jest ts-node typescript vite
+```
+
+### jest.config.cjs
+
+```
+export default {
   testEnvironment: "jest-environment-jsdom",
-  serupFile: ["./jest.setup.js"],
+  serupFile: ["./jest.setup.ts"],
 };
-
 ```
 
-// babel.config.cjs
+### babel.config.cjs
 
 ```
 module.exports = {
@@ -32,17 +46,10 @@ module.exports = {
 };
 ```
 
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.7",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+### jest.setup.ts
 
-yarn add --dev babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript
-yarn add --dev jest jest-environment-jsdom @types/jest
-yarn add --dev ts-jest ts-node
-
-serupFile: ["./jest.setup.ts"],
+```
+import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
+import "whatwg-fetch";
+```

@@ -1,7 +1,9 @@
 import { Gif } from "../interfaces/interfaces";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 export const getGifs = async (category: string): Promise<Gif[]> => {
-  const url = `https://api.giphy.com/v1/gifs/search?api_key=kaJ1JwD4CuQgYun7YpTQpTr5p1qs1sQn&q=${category}&limit=8`;
+  const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${category}&limit=8`;
   const resp = await fetch(url);
   const { data } = await resp.json();
 
